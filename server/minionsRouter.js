@@ -2,8 +2,7 @@ const express = require('express');
 const minionsRouter = express.Router();
 const { getAllFromDatabase, addToDatabase, getFromDatabaseById, updateInstanceInDatabase, deleteFromDatabasebyId } = require('./db');
 
-minionsRouter.param('minionId', (req, res, next) => {
-    const minionId = req.params.minionId;
+minionsRouter.param('minionId', (req, res, next, minionId) => {
     const fetchedMinion = getFromDatabaseById('minions', minionId);
     req.minionId = minionId;
     req.fetchedMinion = fetchedMinion;
