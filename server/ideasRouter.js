@@ -11,7 +11,6 @@ ideasRouter.param('ideaId', (req, res, next, ideaId) => {
 
 ideasRouter.get('/', (req, res, next) => {
     const allIdeas = getAllFromDatabase('ideas');
-    console.log(allIdeas)
     res.send(allIdeas);
 });
 
@@ -37,6 +36,6 @@ ideasRouter.delete('/:ideaId', (req, res, next) => {
     } else {
         res.status(404).send('Not Found');
     }
-})
+});
 
 module.exports = ideasRouter;
